@@ -34,7 +34,9 @@ runs:
 
         - name: Install poetry dependencies
           if: inputs.install-dependencies == 'true'
-          run: poetry install
+          run: |
+            poetry config virtualenvs.in-project true
+            poetry install
           shell: bash
 
         - id: get-project-version
